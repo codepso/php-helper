@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "imagine/imagine": "^0.7.1"
+        "imagine/imagine": "~0.7.1"
     },
     "autoload": {
         "psr-4": {
