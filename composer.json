@@ -1,0 +1,27 @@
+{
+    "name": "codepso/php-helper",
+    "description": "Help libraries for PHP development",
+    "keywords": [
+        "php helper",
+        "php symfony helper",
+        "symfony helper"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Juan Minaya Leon",
+            "email": "minayaleon@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "7.0.*",
+        "imagine/imagine": "^0.7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Codepso\\PHPHelper\\": "src/"
+        }
+    }
+
+}
