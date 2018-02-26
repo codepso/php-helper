@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Codepso package.
+ *
+ * (c) Juan Minaya Leon <minayaleon@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Codepso\PHPHelper;
 
 use Imagine\Gd\Imagine;
@@ -7,9 +16,9 @@ use Imagine\Image\Box;
 use Imagine\Exception\Exception as ImagineException;
 
 /**
+ * Image is a OOP library for image manipulation built in PHP 5.3+
  * @see http://imagine.readthedocs.io/en/latest Documentation of Imagine.
  *
- * Image is a OOP library for image manipulation built in PHP 5.3+
  * @author Juan Minaya Leon <minayaleon@gmail.com>
  */
 class ImageHelper
