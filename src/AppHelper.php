@@ -138,7 +138,7 @@ class AppHelper
         foreach ($rules as $key => $rule) {
 
             $type = gettype($rule);
-            $constraints = array();
+            $constraints = [];
             switch ($type) {
                 case "string":
                     $key = $rule;
@@ -194,7 +194,7 @@ class AppHelper
             }
         }
 
-        $r = array('status' => $result, 'message' => $message);
+        $r = ['status' => $result, 'message' => $message];
         return (object) $r;
     }
 
