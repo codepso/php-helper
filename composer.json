@@ -15,7 +15,6 @@
         }
     ],
     "require": {
-        "php": "7.0.*",
         "imagine/imagine": "^0.7.1"
     },
     "autoload": {
