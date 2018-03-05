@@ -24,23 +24,6 @@ use Imagine\Exception\Exception as ImagineException;
 class ImageHelper
 {
     /**
-     * @var string
-     */
-    private $cdnHost;
-
-    /**
-     * @var string
-     */
-    private $appId;
-
-
-    public function __construct($app)
-    {
-        $this->cdnHost = $app['cdn_host'];
-        $this->appId = $app['id'];
-    }
-
-    /**
      * Image manipulation with PHP Imagine
      * @see http://imagine.readthedocs.io/en/latest Documentation of Imagine.
      *
@@ -52,7 +35,7 @@ class ImageHelper
      * }
      * @return object
      */
-    public function createThumbnail($filename, $params)
+    public static function createThumbnail($filename, $params)
     {
 
         $r = ['success' => true, 'path' => null];
@@ -128,7 +111,43 @@ class ImageHelper
         return (object) $r;
     }
 
-    public function getExtension($filename)
+    public static function uploadBase64($data, $path)
+    {
+        $r = ['success' => true, 'message' => '', 'filename' => ''];
+
+        try {
+
+            $filename = $data['filename'];
+            $file = base64_decode($data['value']);
+            if ($file === false) {
+                throw new \Exception('Invalid data code');
+            }
+
+            $img = @imagecreatefromstring($file);
+            if (!$img) {
+                throw new \Exception('Invalid image data');
+            }
+
+            $ext = self::getExtension($filename);
+            $filename = md5(uniqid()) . '.' . $ext;
+
+            $image = @file_put_contents($path . '/' . $filename, $file);
+            if ($image === false) {
+                throw new \Exception('Can not upload');
+            }
+
+            $r['filename'] = $filename;
+
+        } catch (\Exception $e) {
+
+            $r['success'] = false;
+            $r['message'] = $e->getMessage();
+        }
+
+        return (object) $r;
+    }
+
+    public static function getExtension($filename)
     {
         $parts = explode('.', $filename);
         return end($parts);
