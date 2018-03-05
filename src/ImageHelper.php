@@ -29,8 +29,7 @@ class ImageHelper
      *
      * @param string $filename Image name
      * @param array $params {
-     * @var string $rootPath The file path (include end slash)
-     * @var string $module Module name
+     * @var string $path The file path (Not include end slash)
      * @var string $filter Filters defined in config.yml (original, 75x42, 600x420, etc.)
      * }
      * @return object
@@ -42,26 +41,24 @@ class ImageHelper
 
         try {
 
-            $rootPath = isset($params['root_path']) ? $params['root_path'] : "";
-
             if (!isset($params['filter'])) {
-                throw new \Exception("param filter required");
+                throw new \Exception("Param filter is required");
             }
 
-            if (!isset($params['module'])) {
-                throw new \Exception("param module required");
+            if (!isset($params['path'])) {
+                throw new \Exception("Param path is required");
             }
 
-            $oPath = $rootPath . $params['module'] . '/' . $filename;
+            $oPath = $params['path'] . '/' . $filename;
             if (empty($filename) || !file_exists($oPath)) {
-                throw new \Exception("local file not exists");
+                throw new \Exception("Local file not exists");
             }
 
             // Dimensions
             $parts = explode('x', $params['filter']);
             $width = intval($parts[0]);
             $height = intval($parts[1]);
-            $dPath = $rootPath . $params['module'] . '/' . $params['filter'] . '-' . $filename;
+            $dPath = $params['path'] . '/' . $params['filter'] . '-' . $filename;
 
             // Verify exist destiny dir - set www-data to web folder
             $dvPath = implode('/', explode('/', $dPath, -1));
