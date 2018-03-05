@@ -38,7 +38,7 @@ class ImageHelper
     public static function createThumbnail($filename, $params)
     {
 
-        $r = ['success' => true, 'path' => null];
+        $r = ['status' => true];
 
         try {
 
@@ -99,12 +99,12 @@ class ImageHelper
 
         } catch (ImagineException $e) {
 
-            $r['success'] = false;
+            $r['status'] = false;
             $r['message'] = $e->getMessage();
 
         } catch (\Exception $e) {
 
-            $r['success'] = false;
+            $r['status'] = false;
             $r['message'] = $e->getMessage();
         }
 
@@ -113,7 +113,7 @@ class ImageHelper
 
     public static function uploadBase64($data, $path)
     {
-        $r = ['success' => true, 'message' => '', 'filename' => ''];
+        $r = ['status' => true];
 
         try {
 
@@ -140,7 +140,7 @@ class ImageHelper
 
         } catch (\Exception $e) {
 
-            $r['success'] = false;
+            $r['status'] = false;
             $r['message'] = $e->getMessage();
         }
 
