@@ -43,11 +43,10 @@ class AppHelper
     }
 
     /**
-     * Format URL Query
-     *
-     * @param array $query Query all
-     * @param array $except Except
-     * @return string Query URL
+     * @param $query
+     * @param $except
+     * @param string $concat
+     * @return string
      */
     public static function formatUrlQuery($query, $except, $concat = '')
     {
@@ -72,9 +71,10 @@ class AppHelper
     /**
      * Get ignored attributes
      *
-     * @param string $o Object
-     * @param array $attr Allowed attributes
+     * @param $o object
+     * @param $attr
      * @return array
+     * @throws \ReflectionException
      */
     public static function getIgnoredAttributes($o, $attr)
     {
@@ -128,7 +128,7 @@ class AppHelper
      *
      * @param array $params Variables to evaluate
      * @param array $rules Rules and restrictions
-     * @return array Results
+     * @return object
      */
     public static function isValid($params, $rules)
     {
@@ -238,5 +238,13 @@ class AppHelper
     public static function convertURLFriendly($text)
     {
         return str_replace(' ', '-', strtolower($text));
+    }
+
+    /**
+     * @param $string
+     * @return bool
+     */
+    public static function isJSON($string){
+        return is_string($string) && is_array(json_decode($string, true)) && (json_last_error() == JSON_ERROR_NONE) ? true : false;
     }
 }
