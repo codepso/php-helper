@@ -10,7 +10,11 @@ The Imagine Helper has the following requirements:
  - PHP 5.3+
  - Imagine 1.0.1+
 ### Functions
-#### createThumbnail($filename, $params)
+#### 
+### `createThumbnail($filename, $params)`
+- `$filename (string)` the image's name
+- `$params (array)` parameters
+### `uploadBase64($data, $path)`
 
 
 ## Licence
