@@ -1,6 +1,5 @@
-# Cache and logs (Symfony2)
 /vendor/
-/test/files
-
-#PhpStorm
+/test/files/*
+!/test/files/.gitkeep
+!/test/files/uploads/user/.gitkeep
 .idea/

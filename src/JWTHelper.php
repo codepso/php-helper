@@ -38,9 +38,14 @@ class JWTHelper
     {
         $time = time();
 
+        // iss: (issuer) claim identifies the principal that issued the JWT
+        // aud: (audience) claim identifies the recipients that the JWT is intended for
+
+        $iss = isset($this->params[$scope]['iss']) ? $this->params[$scope]['iss'] : $this->app['id'];
+        $aud = isset($this->params[$scope]['aud']) ? $this->params[$scope]['aud'] : $this->app['id'];
         $token = [
-            "iss" => $this->app['id'],
-            "aud" => "web",
+            "iss" => $iss,
+            "aud" => $aud,
             "iat" => $time,
             "exp" => $time + $this->params[$scope]['ttl']
         ];
@@ -53,10 +58,10 @@ class JWTHelper
         return JWT::encode($token, $secret);
     }
 
-    public function decode($jwt, $scope = "main")
+    public function decode($jwt, $scope = 'main')
     {
         $secret = (isset( $this->params[$scope]['secret'])) ?  $this->params[$scope]['secret'] : $this->app['secret'];
-        return JWT::decode($jwt,  $secret, array('HS256'));
+        return JWT::decode($jwt,  $secret, ['HS256']);
     }
 
 }
