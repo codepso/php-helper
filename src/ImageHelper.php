@@ -54,11 +54,14 @@ class ImageHelper
                 throw new \Exception("Local file not exists");
             }
 
+            // Name
+            $newFilename = isset($params['new_name']) ? $params['new_name'] : $filename;
+
             // Dimensions
             $parts = explode('x', $params['filter']);
             $width = intval($parts[0]);
             $height = intval($parts[1]);
-            $dPath = $params['path'] . '/' . $params['filter'] . '-' . $filename;
+            $dPath = $params['path'] . '/' . $params['filter'] . '-' . $newFilename;
 
             // Verify exist destiny dir - set www-data to web folder
             $dvPath = implode('/', explode('/', $dPath, -1));
