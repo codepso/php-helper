@@ -1,3 +1,11 @@
+<h1 align="center">
+  <br>
+  <img src="https://s3.us-east-2.amazonaws.com/codepso-comunity/codepso-logo.png" alt="Codepso" width="200">
+  <br>
+  php-helper
+  <br>
+</h1>
+
 # php-helper
 Help libraries for PHP development
 ### Requirements
