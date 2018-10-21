@@ -53,9 +53,11 @@ try {
     $e->getMessage();
 }
 ```
-| Original     | Inset          | Outbound      |
-| :---:        | :---:          | :---:         |
-| 366x232      | 200x127        | 200x200       |
+| Image                                                                                     | Type     | Size    |
+| :---                                                                                      | :---     | :---    |
+| ![or](https://s3.us-east-2.amazonaws.com/codepso-comunity/php-helper/teddy.png)           | Original | 366x232 |
+| ![or](https://s3.us-east-2.amazonaws.com/codepso-comunity/php-helper/200x200-teddy-1.png) | Inset    | 200x127 |
+| ![or](https://s3.us-east-2.amazonaws.com/codepso-comunity/php-helper/200x200-teddy-2.png) | Outbound | 200x200 |
   
   
 ### `uploadBase64($data, $path)`
