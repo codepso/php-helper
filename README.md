@@ -66,7 +66,20 @@ try {
 | ![or](https://s3.us-east-2.amazonaws.com/codepso-comunity/php-helper/teddy.png) | ![in](https://s3.us-east-2.amazonaws.com/codepso-comunity/php-helper/200x200-teddy-1.png) | ![ou](https://s3.us-east-2.amazonaws.com/codepso-comunity/php-helper/200x200-teddy-2.png) |  
   
 ### `uploadBase64($data, $path)`
+* **$filename**: `string | required` The image's name
+* **$params**: `array | required` 
+  - **path**: `string | required` Filename path
+  - **filter**: `string | required` Resize info ex: 300x200, 100x100
+  - **ratio**: `int | optional` Inset:1 (default), Outbound: 2
 
+### Test
+
+We are using Codeception 
+
+```bash
+php vendor/bin/codecept run unit ImageHelperTest
+php vendor/bin/codecept run unit
+```
 
 ## Licence
 The Aimeos TYPO3 extension is licensed under the terms of the GPL Open Source license and is available for free.

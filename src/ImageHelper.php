@@ -55,7 +55,7 @@ class ImageHelper
             }
 
             // Name
-            $newFilename = isset($params['new_name']) ? $params['new_name'] : $filename;
+            $newFilename = isset($params['rename']) ? $params['rename'] : $filename;
 
             // Dimensions
             $parts = explode('x', $params['filter']);
@@ -111,14 +111,19 @@ class ImageHelper
         return (object) $r;
     }
 
-    public static function uploadBase64($data, $path)
+    /**
+     * @param $params array
+     * @param $path  string
+     * @return object
+     */
+    public static function saveBase64($params, $path)
     {
         $r = ['status' => true];
 
         try {
 
-            $filename = $data['filename'];
-            $file = base64_decode($data['value']);
+            $filename = $params['filename'];
+            $file = base64_decode($params['value']);
             if ($file === false) {
                 throw new \Exception('Invalid data code');
             }
@@ -128,15 +133,13 @@ class ImageHelper
                 throw new \Exception('Invalid image data');
             }
 
-            $ext = self::getExtension($filename);
-            $filename = md5(uniqid()) . '.' . $ext;
-
-            $image = @file_put_contents($path . '/' . $filename, $file);
+            $newFilename = isset($params['rename']) ? $params['rename'] : $filename;
+            $image = @file_put_contents($path . '/' . $newFilename, $file);
             if ($image === false) {
                 throw new \Exception('Can not upload');
             }
 
-            $r['filename'] = $filename;
+            $r['filename'] = $newFilename;
 
         } catch (\Exception $e) {
 
