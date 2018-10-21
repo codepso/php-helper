@@ -53,11 +53,16 @@ try {
     $e->getMessage();
 }
 ```
+| Original | Inset (200x200) | Outbound (200x200) |
+| :---: | :---: | :---: |
+| 366x232px | 200x127px | 200x200 |
+| ![or](https://s3.us-east-2.amazonaws.com/codepso-comunity/php-helper/teddy.png) | ![in](https://s3.us-east-2.amazonaws.com/codepso-comunity/php-helper/200x200-teddy-1.png) | ![ou](https://s3.us-east-2.amazonaws.com/codepso-comunity/php-helper/200x200-teddy-2.png) |
+
 | Image                                                                                     | Type     | Size    |
 | :---                                                                                      | :---     | :---    |
 | ![or](https://s3.us-east-2.amazonaws.com/codepso-comunity/php-helper/teddy.png)           | Original | 366x232 |
-| ![or](https://s3.us-east-2.amazonaws.com/codepso-comunity/php-helper/200x200-teddy-1.png) | Inset    | 200x127 |
-| ![or](https://s3.us-east-2.amazonaws.com/codepso-comunity/php-helper/200x200-teddy-2.png) | Outbound | 200x200 |
+| ![in](https://s3.us-east-2.amazonaws.com/codepso-comunity/php-helper/200x200-teddy-1.png) | Inset    | 200x127 |
+| ![ou](https://s3.us-east-2.amazonaws.com/codepso-comunity/php-helper/200x200-teddy-2.png) | Outbound | 200x200 |
   
   
 ### `uploadBase64($data, $path)`
