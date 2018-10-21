@@ -1,14 +1,19 @@
 # php-helper
 Help libraries for PHP development
+### Requirements
+PHP Helper has the following requirements:
+ - PHP 7.0+
 ### Installation
+```bash
 composer require codepso/php-helper
+```
 
 ## Image Helper
 Image manipulation
 ### Requirements
 The Imagine Helper has the following requirements:
- - PHP 7.0+
  - Imagine 1.0.1+
+ - GD
 ### Functions
 #### 
 ### `createThumbnail($filename, $params)`
