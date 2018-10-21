@@ -1,5 +1,5 @@
 /vendor/
-/test/files/*
-!/test/files/.gitkeep
-!/test/files/uploads/user/.gitkeep
+/assets/files/*
+!/assets/files/.gitkeep
+!/assets/files/teddy.png
 .idea/
