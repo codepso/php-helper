@@ -4,18 +4,21 @@ Help libraries for PHP development
 composer require codepso/php-helper
 
 ## Image Helper
-PHP 5.3+ Image manipulation
+Image manipulation
 ### Requirements
 The Imagine Helper has the following requirements:
- - PHP 5.3+
+ - PHP 7.0+
  - Imagine 1.0.1+
 ### Functions
 #### 
 ### `createThumbnail($filename, $params)`
-* **$filename**: `string` The image's name
-* **$params**: `array` parameters
-  - **$path**: filename path
-  - **$filter**: filename path
+* **$filename**: `string|required` The image's name
+* **$params**: `array|required` parameters
+  - **path**: `string|required`filename path
+  - **filter**: `string|required` Resize info ex: 300x200, 100x100
+  - **ratio**: `int|optional`
+    - 1: inset
+    - 2: outbounb
 
 - `$filename (string)` the image's name
 - `$params (array)` parameters
