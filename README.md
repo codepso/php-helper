@@ -12,6 +12,11 @@ The Imagine Helper has the following requirements:
 ### Functions
 #### 
 ### `createThumbnail($filename, $params)`
+* **$filename**: `string` The image's name
+* **$params**: `array` parameters
+  - **$path**: filename path
+  - **$filter**: filename path
+
 - `$filename (string)` the image's name
 - `$params (array)` parameters
 ### `uploadBase64($data, $path)`
