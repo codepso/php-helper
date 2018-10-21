@@ -27,7 +27,11 @@ Example
 -------
 ```php
 <?php
-use \Codepso\PHPHelper\ImageHelper;
+
+require_once 'vendor/autoload.php';
+use Codepso\PHPHelper\ImageHelper;
+
+$imageHelper = new ImageHelper;
 
 try {
 
@@ -46,9 +50,12 @@ try {
     }
 
 } catch (\Exception $e) {
-    echo $e->getMessage();
+    $e->getMessage();
 }
 ```
+| Original     | Inset          | Outbound      |
+| :---:        | :---:          | :---:         |
+| 366x232      | 200x127        | 200x200       |
   
   
 ### `uploadBase64($data, $path)`
