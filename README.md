@@ -12,16 +12,13 @@ The Imagine Helper has the following requirements:
 ### Functions
 #### 
 ### `createThumbnail($filename, $params)`
-* **$filename**: `string|required` The image's name
-* **$params**: `array|required` parameters
-  - **path**: `string|required`filename path
-  - **filter**: `string|required` Resize info ex: 300x200, 100x100
-  - **ratio**: `int|optional`
-    - 1: inset
-    - 2: outbounb
-
-- `$filename (string)` the image's name
-- `$params (array)` parameters
+* **$filename**: `string | required` The image's name
+* **$params**: `array | required` 
+  - **path**: `string | required` Filename path
+  - **filter**: `string | required` Resize info ex: 300x200, 100x100
+  - **ratio**: `int | optional` Inset (1), Outbound(2)
+  
+  
 ### `uploadBase64($data, $path)`
 
 
