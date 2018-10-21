@@ -23,7 +23,6 @@ The Imagine Helper has the following requirements:
   - **filter**: `string | required` Resize info ex: 300x200, 100x100
   - **ratio**: `int | optional` Inset:1 (default), Outbound: 2
 
-Example
 -------
 ```php
 <?php
@@ -55,7 +54,7 @@ try {
 ```
 | Original | Inset (200x200) | Outbound (200x200) |
 | :---: | :---: | :---: |
-| 366x232px | 200x127px | 200x200 |
+| 366x232px | 200x127px | 200x200px |
 | ![or](https://s3.us-east-2.amazonaws.com/codepso-comunity/php-helper/teddy.png) | ![in](https://s3.us-east-2.amazonaws.com/codepso-comunity/php-helper/200x200-teddy-1.png) | ![ou](https://s3.us-east-2.amazonaws.com/codepso-comunity/php-helper/200x200-teddy-2.png) |  
   
 ### `uploadBase64($data, $path)`
