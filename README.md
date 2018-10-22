@@ -1,5 +1,4 @@
 <h1 align="center">
-  <br>
   <img src="https://s3.us-east-2.amazonaws.com/codepso-comunity/codepso-logo.png" alt="Codepso" width="100">
 </h1>
 
