@@ -15,8 +15,12 @@ PHP Helper has the following requirements:
 ```bash
 composer require codepso/php-helper
 ```
-
+## App Helper
+-------
+### Functions
+### `isValid($params, $rules)`
 ## Image Helper
+-------
 Image manipulation
 ### Requirements
 The Imagine Helper has the following requirements:
@@ -25,16 +29,14 @@ The Imagine Helper has the following requirements:
 ### Functions
 #### 
 ### `createThumbnail($filename, $params)`
-* **$filename**: `string | required` The image's name
+* **$filename**: `string | required` Name of the image
 * **$params**: `array | required` 
-  - **path**: `string | required` Filename path
+  - **path**: `string | required` Path of the image
   - **filter**: `string | required` Resize info ex: 300x200, 100x100
   - **ratio**: `int | optional` Inset:1 (default), Outbound: 2
-
--------
+  - **rename**: `string | optional` New name of the image
 ```php
 <?php
-
 require_once 'vendor/autoload.php';
 
 use Codepso\PHPHelper\ImageHelper;
@@ -64,7 +66,7 @@ try {
 | 366x232px | 200x127px | 200x200px |
 | ![or](https://s3.us-east-2.amazonaws.com/codepso-comunity/php-helper/teddy.png) | ![in](https://s3.us-east-2.amazonaws.com/codepso-comunity/php-helper/200x200-teddy-1.png) | ![ou](https://s3.us-east-2.amazonaws.com/codepso-comunity/php-helper/200x200-teddy-2.png) |  
   
-### `uploadBase64($data, $path)`
+### `saveBase64($params, $path)`
 * **$params**: `array | required`
   - **filename**: `string | required` Name of the image
   - **value**: `string | required` Image in base64 format
@@ -72,7 +74,6 @@ try {
 * **$path**: `string | required` The path to save the file
 ```php
 <?php
-
 require_once 'vendor/autoload.php';
 
 use Codepso\PHPHelper\ImageHelper;
