@@ -9,13 +9,13 @@
 # php-helper
 Help libraries for PHP development
 ## Table of content
+- [Requirements](#requirements)
 - [Installation](#installation)
-    - [Requirements](#requirements)
 - [Helpers](#apphelper)
     - [AppHelper](#apphelper)
     - [ImageHelper](#imagehelper)
     - [JWTHelper](#jwthelper)
-- [test](#test)
+- [Tests](#test)
 - [License](#license)
 - [Links](#links)
 ## Requirements
