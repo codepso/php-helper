@@ -8,20 +8,28 @@
 
 # php-helper
 Help libraries for PHP development
-### Requirements
+## Table of content
+- [Installation](#installation)
+    - [Requirements](#requirements)
+- [Helpers](#apphelper)
+    - [AppHelper](#apphelper)
+    - [ImageHelper](#imagehelper)
+    - [JWTHelper](#jwthelper)
+- [test](#test)
+- [License](#license)
+- [Links](#links)
+## Requirements
 PHP Helper has the following requirements:
  - PHP 7.0+
-### Installation
+## Installation
 ```bash
 composer require codepso/php-helper
 ```
-## App Helper
--------
+## AppHelper
 ### Functions
 ### `isValid($params, $rules)`
-## Image Helper
+## ImageHelper
 Image manipulation
-### Requirements
 The Imagine Helper has the following requirements:
  - Imagine 1.0.1+
  - GD
@@ -43,14 +51,14 @@ use Codepso\PHPHelper\ImageHelper;
 try {
 
     // ratio: 1 (inset)
-    $p = ['path' => 'files', 'filter' => '200x200'];
+    $p = ['path' => 'assets/files', 'filter' => '200x200'];
     $r1 = ImageHelper::createThumbnail('teddy.png', $p);
     if (!$r1->status) {
         throw new \Exception($r1->message);
     }
 
     // ratio: 2 (outbound)
-    $p = ['path' => 'files', 'filter' => '200x200', 'rename' => 'teddy-2.png',  'ratio' => 2];
+    $p = ['path' => 'assets/files', 'filter' => '200x200', 'rename' => 'teddy-2.png',  'ratio' => 2];
     $r2 = ImageHelper::createThumbnail('teddy.png', $p);
     if (!$r2->status) {
         throw new \Exception($r2->message);
@@ -92,7 +100,8 @@ try {
     $e->getMessage();
 }
 ```
-### Test
+## JWTHelper
+## Test
 
 We are using Codeception 
 
@@ -104,7 +113,10 @@ php vendor/bin/codecept run ImageHelperTest:testSaveBase64WithNewName
 
 ```
 
-## Licence
+## License
 The Aimeos TYPO3 extension is licensed under the terms of the GPL Open Source license and is available for free.
+
+## Links
+- https://imagine.readthedocs.io/en/stable
 
  
