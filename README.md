@@ -17,23 +17,24 @@ Help libraries for PHP development
 ## Requirements
 PHP Helper has the following requirements:
  - PHP 7.0+
+Image manipulation
+The Imagine Helper has the following requirements:
+  - Imagine 1.0.1+
+  - GD
 ## Installation
 ```bash
 composer require codepso/php-helper
 ```
 ## AppHelper
-### Functions
 ### `isValid($params, $rules)`
 ### `populate($object, $data, $ignore)`
 ### `getIgnoredAttributes($object, $attr)`
 ### `getClass($object, $namespace)`
+### `getElapsed($date)`
+### `generatePassword($length)`
+### `isJSON($string)`
+
 ## ImageHelper
-Image manipulation
-The Imagine Helper has the following requirements:
- - Imagine 1.0.1+
- - GD
-### Functions
-#### 
 ### `createThumbnail($filename, $params)`
 * **$filename**: `string | required` Name of the image
 * **$params**: `array | required` 
@@ -100,6 +101,9 @@ try {
 }
 ```
 ## JWTHelper
+### `encode($data, $scope)`
+### `encode($jwt, $scope)`
+
 ## Test
 
 We are using Codeception 
