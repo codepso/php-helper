@@ -24,6 +24,9 @@ composer require codepso/php-helper
 ## AppHelper
 ### Functions
 ### `isValid($params, $rules)`
+### `populate($object, $data, $ignore)`
+### `getIgnoredAttributes($object, $attr)`
+### `getClass($object, $namespace)`
 ## ImageHelper
 Image manipulation
 The Imagine Helper has the following requirements:
