@@ -36,22 +36,21 @@ The Imagine Helper has the following requirements:
 <?php
 
 require_once 'vendor/autoload.php';
-use Codepso\PHPHelper\ImageHelper;
 
-$imageHelper = new ImageHelper;
+use Codepso\PHPHelper\ImageHelper;
 
 try {
 
     // ratio: 1 (inset)
-    $p = ['path' => 'files', 'filter' => '200x200', 'new_name' => 'teddy-1.png'];
-    $r1 = $imageHelper->createThumbnail('teddy.png', $p);
+    $p = ['path' => 'files', 'filter' => '200x200'];
+    $r1 = ImageHelper::createThumbnail('teddy.png', $p);
     if (!$r1->status) {
         throw new \Exception($r1->message);
     }
 
     // ratio: 2 (outbound)
-    $p = ['path' => 'files', 'filter' => '200x200', 'new_name' => 'teddy-2.png',  'ratio' => 2];
-    $r2 = $imageHelper->createThumbnail('teddy.png', $p);
+    $p = ['path' => 'files', 'filter' => '200x200', 'rename' => 'teddy-2.png',  'ratio' => 2];
+    $r2 = ImageHelper::createThumbnail('teddy.png', $p);
     if (!$r2->status) {
         throw new \Exception($r2->message);
     }
@@ -66,12 +65,33 @@ try {
 | ![or](https://s3.us-east-2.amazonaws.com/codepso-comunity/php-helper/teddy.png) | ![in](https://s3.us-east-2.amazonaws.com/codepso-comunity/php-helper/200x200-teddy-1.png) | ![ou](https://s3.us-east-2.amazonaws.com/codepso-comunity/php-helper/200x200-teddy-2.png) |  
   
 ### `uploadBase64($data, $path)`
-* **$filename**: `string | required` The image's name
-* **$params**: `array | required` 
-  - **path**: `string | required` Filename path
-  - **filter**: `string | required` Resize info ex: 300x200, 100x100
-  - **ratio**: `int | optional` Inset:1 (default), Outbound: 2
+* **$params**: `array | required`
+  - **filename**: `string | required` Name of the image
+  - **value**: `string | required` Image in base64 format
+  - **rename**: `string | optional` New name of the image
+* **$path**: `string | required` The path to save the file
+```php
+<?php
 
+require_once 'vendor/autoload.php';
+
+use Codepso\PHPHelper\ImageHelper;
+
+try {
+
+    $p = [
+        'filename' => 'box.png',
+        'value' => 'iVBORw0KGgoAAAANSUhEUgAAABoAAAAYAQMAAADeTH+GAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAA1BMVEWIkr9Q9TFnAAAAC0lEQVQIHWMYIAAAAHgAASxSckIAAAAASUVORK5CYII='
+    ];
+    $r = ImageHelper::saveBase64($p, 'assets/files');
+    if (!$r->status) {
+        throw new \Exception($r->message);
+    }
+
+} catch (\Exception $e) {
+    $e->getMessage();
+}
+```
 ### Test
 
 We are using Codeception 
@@ -79,6 +99,9 @@ We are using Codeception
 ```bash
 php vendor/bin/codecept run unit ImageHelperTest
 php vendor/bin/codecept run unit
+php vendor/bin/codecept run ImageHelperTest:testSaveBase64
+php vendor/bin/codecept run ImageHelperTest:testSaveBase64WithNewName
+
 ```
 
 ## Licence

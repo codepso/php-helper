@@ -55,13 +55,15 @@ class ImageHelper
             }
 
             // Name
-            $newFilename = isset($params['rename']) ? $params['rename'] : $filename;
+            $file = (isset($params['rename'])) ? self::getInfo($params['rename']) : self::getInfo($filename);
 
             // Dimensions
             $parts = explode('x', $params['filter']);
             $width = intval($parts[0]);
             $height = intval($parts[1]);
-            $dPath = $params['path'] . '/' . $params['filter'] . '-' . $newFilename;
+
+            // $dPath = $params['path'] . '/' . $file['name'] . '-' . $params['filter'] . '.' . $file['ext'];
+            $dPath = $params['path'] . '/' . $params['filter'] . '-' . $file['name'] . '.' . $file['ext'];
 
             // Verify exist destiny dir - set www-data to web folder
             $dvPath = implode('/', explode('/', $dPath, -1));
@@ -112,8 +114,8 @@ class ImageHelper
     }
 
     /**
-     * @param $params array
-     * @param $path  string
+     * @param array $params
+     * @param string $path
      * @return object
      */
     public static function saveBase64($params, $path)
@@ -148,6 +150,18 @@ class ImageHelper
         }
 
         return (object) $r;
+    }
+
+    /**
+     * @param string $filename Must include the file's extension
+     * @return array
+     */
+    public static function getInfo($filename)
+    {
+        $parts = explode('.', $filename);
+        $r['name'] = current($parts);
+        $r['ext'] = end($parts);
+        return $r;
     }
 
     public static function getExtension($filename)
