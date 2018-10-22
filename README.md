@@ -20,7 +20,6 @@ composer require codepso/php-helper
 ### Functions
 ### `isValid($params, $rules)`
 ## Image Helper
--------
 Image manipulation
 ### Requirements
 The Imagine Helper has the following requirements:
