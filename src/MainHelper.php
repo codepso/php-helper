@@ -16,7 +16,7 @@ namespace Codepso\PHPHelper;
  *
  * @author Juan Minaya Leon <minayaleon@gmail.com>
  */
-class AppHelper
+class MainHelper
 {
     /**
      * Get the name of a class

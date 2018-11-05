@@ -7,8 +7,8 @@ Help libraries for PHP development
 ## Table of content
 - [Requirements](#requirements)
 - [Installation](#installation)
-- [Helpers](#apphelper)
-    - [AppHelper](#apphelper)
+- [Helpers](#mainhelper)
+    - [MainHelper](#mainhelper)
     - [ImageHelper](#imagehelper)
     - [JWTHelper](#jwthelper)
 - [Tests](#test)
@@ -25,7 +25,7 @@ The Imagine Helper has the following requirements:
 ```bash
 composer require codepso/php-helper
 ```
-## AppHelper
+## MainHelper
 ### `isValid($params, $rules)`
 ### `populate($object, $data, $ignore)`
 ### `getIgnoredAttributes($object, $attr)`
